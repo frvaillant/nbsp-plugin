@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Non-breaking spaces inserter
- * Description: Add a small caps formatting option in editor.
+ * Description: Insert non-breaking spaces directly within the editor.
  * Author:      François Vaillant
  * Author URI:  https://frvaillant.fr
  * Text Domain: frv-nbsp
