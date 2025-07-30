@@ -7,16 +7,17 @@
  * Text Domain: frv-nbsp
  */
 
-function my_custom_gutenberg_button() {
-    wp_enqueue_script(
-        'custom-toolbar-button',
-        plugin_dir_url( __FILE__ ) . 'src/js/custom-toolbar-button.js',
-        array('wp-rich-text', 'wp-element', 'wp-i18n', 'wp-block-editor', 'wp-components'),
-        filemtime(__DIR__ . '/src/js/custom-toolbar-button.js')
-    );
+if (! defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
 }
-add_action('enqueue_block_editor_assets', 'my_custom_gutenberg_button');
 
-add_action('enqueue_block_editor_assets', function () {
-    wp_enqueue_style('dashicons');
+add_action('enqueue_block_editor_assets', function() {
+	wp_enqueue_style('dashicons');
+	$asset_file = include(plugin_dir_path(__FILE__) . 'build/index.asset.php');
+	wp_enqueue_script(
+		'frv-nbsp-toolbar-button',
+		plugins_url('build/index.js', __FILE__),
+		$asset_file['dependencies'],
+		$asset_file['version']
+	);
 });
