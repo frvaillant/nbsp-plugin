@@ -1,8 +1,11 @@
 <?php
-
-/*
-Plugin Name: non-breaking space inserter
-*/
+/**
+ * Plugin Name: Non-breaking space inserter
+ * Description: Add a small caps formatting option in editor.
+ * Author:      François Vaillant
+ * Author URI:  https://frvaillant.fr
+ * Text Domain: frv-nbsp
+ */
 
 function my_custom_gutenberg_button() {
     wp_enqueue_script(
